@@ -63,6 +63,10 @@ async def echo(bot, update):
     youtube_dl_username = None
     youtube_dl_password = None
     file_name = None
+    if "shorts/" in url:
+        code = link.split("shorts/")[1]
+        f_code = code.split('?')[0]
+        url = "https://youtube.com/watch?v="+f_code +"?"
     if "|" in url:
         url_parts = url.split("|")
         if len(url_parts) == 2:
