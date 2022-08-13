@@ -56,6 +56,10 @@ async def youtube_dl_call_back(bot, update):
         )
         return False
     youtube_dl_url = update.message.reply_to_message.text
+    if "shorts/" in youtube_dl_url:
+        code = youtube_dl_url.split("shorts/")[1]
+        f_code = code.split('?')[0]
+        youtube_dl_url = "https://youtube.com/watch?v="+f_code +"?"
     custom_file_name = str(response_json.get("title")) + \
         "_" + youtube_dl_format + "." + youtube_dl_ext
     youtube_dl_username = None
